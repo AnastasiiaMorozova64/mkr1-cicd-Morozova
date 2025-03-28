@@ -27,9 +27,21 @@ class DemographicStats:
        
     def arrange_by_territory(self):
         return sorted(self.nation_list, key=lambda nation: nation.territory_size, reverse=True)
+    
+    def arrange_by_citizens(self):
+        return sorted(self.nation_list, key=lambda nation: nation.citizen_count, reverse=True)
 
 def execute():
-    print("its main")
+    source_file = "population_countries_data.txt"  # Змінити на фактичний файл
+    stats_handler = DemographicStats(source_file)
+    
+    print("\nРанжування за територією:")
+    for nation in stats_handler.arrange_by_territory():
+        print(nation)
+    
+    print("\nРанжування за чисельністю населення:")
+    for nation in stats_handler.arrange_by_citizens():
+        print(nation)
 
 if __name__ == "__main__":
     execute()
