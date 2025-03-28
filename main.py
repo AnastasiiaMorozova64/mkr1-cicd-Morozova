@@ -23,7 +23,10 @@ class DemographicStats:
                     registry.append(country_entry)
                 except ValueError:
                     continue  # Ігноруємо помилкові рядки
-        return registry
+        return registry 
+       
+    def arrange_by_territory(self):
+        return sorted(self.nation_list, key=lambda nation: nation.territory_size, reverse=True)
 
 def execute():
     print("its main")
